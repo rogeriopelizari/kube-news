@@ -41,7 +41,7 @@ kind: Deployment
 metadata:
   name: kubenews
 spec:
-  replicas: 20  
+  replicas: 2  
   selector:
     matchLabels:
       app: kubenews
@@ -52,7 +52,7 @@ spec:
     spec:
       containers:
       - name: kubenews
-        image: orbite82/kube-news-2:v1
+        image: rogpelizari/kube-new:v2
         env:
         - name: DB_DATABASE
           value: "kubenews"
@@ -74,4 +74,5 @@ spec:
   - port: 80
     targetPort: 8080
     nodePort: 30000
-  type: LoadBalancer  #on prime NodePort #Digital Ocean  LoadBalancer 
+  type: NodePort    
+      #  type: LoadBalancer  #on prime NodePort #Digital Ocean  LoadBalancer 
